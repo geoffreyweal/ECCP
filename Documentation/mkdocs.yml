@@ -1,0 +1,166 @@
+# Project information
+site_name:  Electronic Crystal Calculation Prep (ECCP) Documentation
+site_url: https://github.com/geoffreyweal/ECCP
+site_author: Geoffrey Weal
+site_description: >-
+  This program is designed to allow the user to remove unnecessary sidegroups from molecules in the crystal. This program was designed particularly to remove saturated aliphatic sidechains from molecules that shouldn't contribute considerably to visible adsorption and charge/energy transfer. 
+
+# Repository
+repo_name: geoffreyweal/ECCP
+repo_url: https://github.com/geoffreyweal/ECCP
+
+# Copyright
+copyright: Copyright &copy; 2024 <a href="https://github.com/geoffreyweal"  target="_blank" rel="noopener">Geoffrey Weal</a>
+
+# Configuration
+theme:
+  name: material
+  features:
+    - navigation.top
+    - navigation.footer
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    #- navigation.tabs.sticky
+    #- navigation.sections
+    #- navigation.expand
+    - navigation.path
+    #- navigation.prune
+    - navigation.indexes
+    #- toc.follow
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+    - content.code.select
+    #- content.action.edit
+    #- content.action.view
+    - content.tooltips
+    #- announce.dismiss
+    #- content.code.annotate
+    # - content.footnote.tooltips
+    # - header.autohide
+    #- search.share
+  language: en
+  palette:
+
+    # Palette toggle for light/dark mode system perference
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/lightbulb-multiple-outline
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      primary: light blue
+      accent:  light blue
+      toggle:
+        icon: material/lightbulb
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: light blue
+      accent:  light blue
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to system preference
+  font:
+    text: Roboto
+    code: Roboto Mono
+  #favicon: assets/favicon.png
+  icon:
+    logo: logo
+
+plugins:
+  - social
+  - search
+  - img2fig
+
+# Additional configuration
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/geoffreyweal
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/eccp
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/geoffreyweal
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/geoffrey-weal-905725196
+    - icon: fontawesome/brands/orcid
+      link: https://orcid.org/0000-0002-3477-160X
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/mkdocs.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: "*"
+          class: "highlight"
+          format: !!python/name:pymdownx_superfence_filter_lines.do_format
+          validator: !!python/name:pymdownx_superfence_filter_lines.do_validate
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page tree
+nav:
+  - Home: index.md
+  - Installation: Installation.md
+  - Guide to Running the ECCP Program: 
+    - Guide_to_Using_the_ECCP_Program/index.md
+    - Using the ECCP Program: Guide_to_Using_the_ECCP_Program/Using_The_ECCP_Program.md
+    - Methods for Making and Obtaining Unique Molecules and Dimers from the Crystal: Guide_to_Using_the_ECCP_Program/Molecule_and_Dimer_Methods.md
+    - Environment Settings: Guide_to_Using_the_ECCP_Program/Environment_Settings.md
+    - Calculation Parameters and Submission Information Settings: Guide_to_Using_the_ECCP_Program/Calculation_Parameters_and_Submission_Information_Settings.md
+    - Recommendation For Settings: Guide_to_Using_the_ECCP_Program/Recommended_Settings.md
+  - ECCP Output and Running DFT Calculations: 
+    - Output from the ECCP Program: ECCP_Output_and_Running_DFT_Calculations/Output_From_The_ECCP_Program.md
+    - How to submit Gaussian/ORCA jobs: ECCP_Output_and_Running_DFT_Calculations/Submitting_Jobs_to_Slurm.md
+    - Post-processing DFT Results: ECCP_Output_and_Running_DFT_Calculations/Postprocessing_Data.md
+  - Issues and Troubleshooting: Troubleshooting.md
+
