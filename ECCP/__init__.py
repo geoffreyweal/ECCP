@@ -2,7 +2,7 @@
 
 __name__    = 'ECCP (The Electronic Crystal Calculation Prep Program)'
 __version__ = '0.20.0'
-__author__  = 'Dr. Geoffrey Weal, Dr. Chayanit Wechwithayakhlung, Dr. Josh Sutton, Dr. Daniel Packwood, Dr. Paul Hume, Prof. Justin Hodgkiss'
+__author__  = 'Dr. Geoffrey Weal, Dr. Chayanit Wechwithayakhlung, Dr. Josh Sutton, Assoc. Prof. Daniel Packwood, Dr. Paul Hume, Prof. Justin Hodgkiss'
 
 import sys
 import importlib
