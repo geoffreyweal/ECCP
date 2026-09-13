@@ -8,7 +8,7 @@ import time
 from datetime import datetime, timedelta
 
 from ECCP.ECCP_Programs.processing_RE_methods.processing_orca_RE_data_methods import get_energy_from_opt_job, get_frequencies_from_freq_job
-from ECCP.ECCP_Programs.shared_general_methods.shared_orca_methods            import did_orca_opt_job_complete, did_orca_job_complete, orca_temp_files_to_remove
+from SUMELF.SUMELF.calculation_file_methods.shared_orca_methods import did_orca_opt_job_complete, did_orca_job_complete, orca_temp_files_to_remove
 
 def obtain_orca_RE_data(root, reorganisation_energy_data, start_time, ground_structure_foldername, excited_structure_foldername, lower_limit_negative_frequency, issues):
     """

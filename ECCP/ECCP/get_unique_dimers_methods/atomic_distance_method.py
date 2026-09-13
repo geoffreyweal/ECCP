@@ -29,7 +29,6 @@ def remove_equivalent_dimers_atomic_distance_method(dimers, molecules):
 	print('add environment settings here')
 	print('add distance comparison to help speed up')
 	print('Change ')
-	import pdb; pdb.set_trace()
 	raise Exception('Need to test this algorithm out.')
 
 	# First, get all the molecules without hydrogens.
@@ -51,7 +50,6 @@ def remove_equivalent_dimers_atomic_distance_method(dimers, molecules):
 		positions2 = molecule2.get_positions()
 		dd_1_to_2  = get_all_distances_from_1_to_2(positions1,positions2,elements1,elements2)
 		dd_2_to_1  = get_all_distances_from_1_to_2(positions2,positions1,elements2,elements1)
-		import pdb; pdb.set_trace()
 		distances_between_dimers.append((dd_1_to_2,dd_2_to_1))
 
 	# Third, determine which dimers are equivalent

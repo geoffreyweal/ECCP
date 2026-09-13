@@ -5,7 +5,7 @@ Geoffrey Weal, move_gaussian_freq_chk_file_to_storage_folder.py, 29/12/22
 This program is designed to move the frequency checkpoint file from the RE folder to the RE_Checkpoint folder, once the frequency single point calculation has finished. 
 '''
 import os, shutil
-from ECCP.ECCP_Programs.shared_general_methods.shared_general_methods import reverse_readline
+from SUMELF.SUMELF.calculation_file_methods.shared_general_methods import reverse_readline
 
 All_RE_Checkpoint_Files_folder    = 'All_RE_Checkpoint_Files'
 Unique_RE_Checkpoint_Files_folder = 'Unique_RE_Checkpoint_Files'

@@ -34,7 +34,6 @@ def remove_equivalent_dimers_averaging_method(dimers, molecules):
 
 	print('add environment settings here')
 	print('add distance comparison to help speed up')
-	import pdb; pdb.set_trace()
 	
 	# First, get all the molecules without hydrogens.
 	non_hydrogen_molecules = {}

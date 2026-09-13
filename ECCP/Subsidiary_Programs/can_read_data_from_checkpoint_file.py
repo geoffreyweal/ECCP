@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 '''
 Geoffrey Weal, read_data_from_checkpoint_file.py, 12/1/23
 

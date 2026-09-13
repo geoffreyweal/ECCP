@@ -8,9 +8,9 @@ import os, sys, shutil
 from ase.io import read
 from copy import deepcopy
 
-from ECCP.ECCP_Programs.shared_general_methods.shared_gaussian_methods            import did_gaussian_opt_job_complete
+from SUMELF.SUMELF.calculation_file_methods.shared_gaussian_methods import did_gaussian_opt_job_complete
 from ECCP.Subsidiary_Programs.can_read_data_from_checkpoint_file                  import can_read_data_from_checkpoint_file
-from ECCP.Subsidiary_Programs.get_charge_and_multiplicity                         import get_charge_and_multiplicity_from_gaussian
+from SUMELF.Subsidiary_Programs.get_charge_and_multiplicity import get_charge_and_multiplicity_from_gaussian
 from ECCP.ECCP.write_molecules_to_disk_methods.write_methods.gaussian_modified_RE import write_gaussian_in as write_gaussian_in_RE
 
 def run_method(dirpath, optimisation_filename, single_point_filename, perform_TD, gaussian_parameters={}):

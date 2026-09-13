@@ -90,13 +90,11 @@ def read_submit_settingsTXT_file(path_to_settings_txt_file):
             variables_you_do_not_have_in_settingsTXT.append(variable)
     if not len(variables_you_do_not_have_in_settingsTXT) == 0:
         print(variables_you_do_not_have_in_settingsTXT)
-        import pdb; pdb.set_trace()
         exit('Error')
 
     # Third, check that no variables have been entered twice:
     if not (len(variables_found) == len(set(variables_found))):
         print(variables_you_do_not_have_in_settingsTXT)
-        import pdb; pdb.set_trace()
         exit('Error')
 
     # Fourth, return all the settings from the settings file.

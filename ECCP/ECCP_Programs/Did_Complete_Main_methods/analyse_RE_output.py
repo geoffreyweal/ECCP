@@ -4,8 +4,8 @@ analyse_RE_output.py, Geoffrey Weal, 29/12/22
 This method is designed to check if a RE Gaussian job has completed or not.
 '''
 import os
-from ECCP.ECCP_Programs.shared_general_methods.shared_gaussian_methods import did_gaussian_job_complete, did_gaussian_opt_job_complete, did_freq_gaussian_job_complete
-from ECCP.ECCP_Programs.shared_general_methods.shared_orca_methods     import did_orca_job_complete,     did_orca_opt_job_complete,     did_freq_orca_job_complete
+from SUMELF.SUMELF.calculation_file_methods.shared_gaussian_methods import did_gaussian_job_complete, did_gaussian_opt_job_complete, did_freq_gaussian_job_complete
+from SUMELF.SUMELF.calculation_file_methods.shared_orca_methods import did_orca_job_complete,     did_orca_opt_job_complete,     did_freq_orca_job_complete
 
 def analyse_RE_output(software_type, path, calculation_type):
     """

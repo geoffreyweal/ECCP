@@ -394,6 +394,14 @@ def check_calc_and_submission_variables(gaussian_parameters, submission_informat
 						toString += str(gaussian_parameters)+'\t|\t'+str(submission_information)+'\n'
 					raise Exception(toString)
 			elif gaussian_parameters['calc_software'].lower() == 'orca':
+				# ORCA support is not implemented yet. Fail here, while the settings are being
+				# checked, rather than part way through writing calculation files.
+				raise NotImplementedError(
+					"ORCA is not implemented yet in ECCP. Set 'calc_software' to 'Gaussian' in your "
+					+str(job_type)+" calculation parameters. "
+					"(Note in particular that ORCA has no EET function, so exciton coupling calculations "
+					"must be run through Gaussian.)"
+				)
 				if 'orca_version' not in submission_information:
 					toString = "Error in "+str(job_type)+" checks: You are requesting to use ORCA in an entry in gaussian_parameters, however you have not given an input for 'orca_version' in submission_information\n"
 					toString += 'Your all_gaussian_parameters, all_submission_information list is:\n'

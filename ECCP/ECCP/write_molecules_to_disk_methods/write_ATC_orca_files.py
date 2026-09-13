@@ -10,8 +10,8 @@ from SUMELF                                                                    i
 from SUMELF                                                                    import obtain_graph
 from ECCP.ECCP.remove_unwanted_entries                                         import remove_unwanted_entries
 from ECCP.ECCP.write_molecules_to_disk_methods.write_methods.orca_modified_ATC import write_orca_in_ATC
-from ECCP.ECCP.write_molecules_to_disk_methods.shared_methods                  import change_folder_name_components, input_commands_for_multiwfn
-from ECCP.ECCP.write_molecules_to_disk_methods.shared_methods                  import slurmSL_header, load_orca_programs, make_orca_temp_folder, remove_orca_temp_files
+from SUMELF import change_folder_name_components, input_commands_for_multiwfn
+from SUMELF import slurmSL_header, load_orca_programs, make_orca_temp_folder, remove_orca_temp_files
 
 def write_ATC_orca_files(molecule, molecule_name, environment_about_molecule, SolventsList, orca_jobs_path, calc_parameters_for_ATCs, submission_information_for_ATCs):
 	"""

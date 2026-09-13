@@ -28,8 +28,10 @@ make_dimer_method = {'method': 'nearest_atoms_method', 'max_dimer_distance': 8.0
 # This dictionary provides information for determining which dimers are equivalent
 dimer_equivalence_method = {'method': 'invariance_method', 'type': 'combination'} 
 
-# This dictionary includes info about how to treat the enivornment surrounding dimers (where applicable).  
-environment_settings = {'include_environment_where_possible': False, 'max_environment_distance': 8.0}
+# This dictionary includes info about how to treat the enivornment surrounding molecules and dimers.
+# NOTE: Including the environment is NOT IMPLEMENTED YET, so leave both of these set to False.
+#       See the "Environment Settings" page of the documentation.
+environment_settings = {'include_environment_in_molecule_calcs': False, 'include_environment_in_dimer_calcs': False, 'max_environment_distance': 8.0}
 
 # This tag indicates if you want to remove solvents from the crystal. This requires the input file to have a reference to which molecules are solvents called "SolventList"
 remove_solvents = False
@@ -188,8 +190,18 @@ ict_file_creation_information = (calculation_parameters_for_eigendata, submissio
 # --------------------------------------------------------------------------------------------------------------
 # --------------------------------------------------------------------------------------------------------------
 # --------------------------------------------------------------------------------------------------------------
-# This will run this method
-ECCP(filepath, make_molecule_method=make_molecule_method, molecule_equivalence_method=molecule_equivalence_method, make_dimer_method=make_dimer_method, dimer_equivalence_method=dimer_equivalence_method, environment_settings=environment_settings, remove_solvents=remove_solvents, atc_file_creation_information=atc_file_creation_information, re_file_creation_information=re_file_creation_information, fc_file_creation_information=fc_file_creation_information, eet_file_creation_information=eet_file_creation_information, ict_file_creation_information=ict_file_creation_information, overall_folder_suffix_name=overall_folder_suffix_name, no_of_cpus=no_of_cpus)
+# This will run this method.
+#
+# NOTE: The "if __name__ == '__main__':" line below is required whenever no_of_cpus > 1.
+#       ECCP uses multiprocessing, and on macOS (and Windows) Python starts worker processes
+#       with the "spawn" method, which re-imports this script inside every worker. Without
+#       this guard each worker would try to start its own pool, and Python stops the run with
+#       "An attempt has been made to start a new process before the current process has
+#       finished its bootstrapping phase". On Linux the default is "fork", so it works either
+#       way there - but keep the guard so the same script runs on every platform.
+if __name__ == '__main__':
+
+	ECCP(filepath, make_molecule_method=make_molecule_method, molecule_equivalence_method=molecule_equivalence_method, make_dimer_method=make_dimer_method, dimer_equivalence_method=dimer_equivalence_method, environment_settings=environment_settings, remove_solvents=remove_solvents, atc_file_creation_information=atc_file_creation_information, re_file_creation_information=re_file_creation_information, fc_file_creation_information=fc_file_creation_information, eet_file_creation_information=eet_file_creation_information, ict_file_creation_information=ict_file_creation_information, overall_folder_suffix_name=overall_folder_suffix_name, no_of_cpus=no_of_cpus)
 # --------------------------------------------------------------------------------------------------------------
 # --------------------------------------------------------------------------------------------------------------
 # --------------------------------------------------------------------------------------------------------------

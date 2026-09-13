@@ -53,7 +53,6 @@ def are_systems_variant(system1_elements, system1_positions, no_of_H_on_atoms_in
         print('However, they should be the same as the networkx graph nodes have been given information about the element for each atom.')
         print('Therefore, this should have been picked up by GraphMatcher object.')
         print('Check this out')
-        import pdb; pdb.set_trace()
         exit('This program will finish without completing.')
 
     # Second, check that all the lists are the same length, as the system to this point have the same number of atoms. 
@@ -68,7 +67,6 @@ def are_systems_variant(system1_elements, system1_positions, no_of_H_on_atoms_in
         print('no_of_H_on_atoms_in_system1 = '+str(no_of_H_on_atoms_in_system1))
         print('no_of_H_on_atoms_in_system2 = '+str(no_of_H_on_atoms_in_system2))
         print('Check this out')
-        import pdb; pdb.set_trace()
         exit('This program will finish without completing.')
 
     # Third, check that all the hydrogens bound to each atoms of a system are the same between system 1 and system 2. 

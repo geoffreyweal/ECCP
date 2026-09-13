@@ -6,8 +6,8 @@ This script is designed to write the gaussian files and submit.sl files required
 from copy                                                                       import deepcopy
 from SUMELF                                                                     import make_folder
 from ECCP.ECCP.write_dimers_to_disk_methods.write_methods.gaussian_modified_ICT import write_gaussian_in as write_gaussian_in_ICT
-from ECCP.ECCP.write_molecules_to_disk_methods.shared_methods                   import change_folder_name_components
-from ECCP.ECCP.write_molecules_to_disk_methods.shared_methods                   import slurmSL_header, load_orca_programs, make_gaussian_temp_folder, remove_gaussian_temp_files
+from SUMELF import change_folder_name_components
+from SUMELF import slurmSL_header, load_orca_programs, make_gaussian_temp_folder, remove_gaussian_temp_files
 
 def write_ICT_orca_files(dimer, molecule_1, molecule_2, full_dimer_name, gaussian_jobs_path, all_gaussian_parameters_for_ICTs, all_submission_information_for_ICTs, get_dimer_icts=True):
 	"""

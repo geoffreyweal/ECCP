@@ -192,7 +192,7 @@ pip3 install --upgrade --user packaging
 The ``SUMELF`` program contains several methods that are used by multiple programs in the grand scheme to obtain exciton and charge diffusion in crystals. The easiest way to install ``SUMELF`` is though ``pip``. Type the following into the terminal:
 
 ```bash
-pip3 install --upgrade --user SUMELF
+pip3 install --upgrade --user git+https://github.com/geoffreyweal/SUMELF.git
 ```
 
 However, there are other ways to install the ``SUMELF`` program. See the [SUMELF Installation webpage](https://geoffreyweal.github.io/SUMELF/Installation.html) for more information. 

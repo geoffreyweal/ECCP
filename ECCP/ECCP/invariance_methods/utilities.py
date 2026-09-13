@@ -24,5 +24,5 @@ def get_permutated_indices_list(comparison):
 		idx = np.empty_like(permutation1)
 		idx[permutation1] = np.arange(len(permutation1))
 	except:
-		import pdb; pdb.set_trace()
+		raise
 	return idx

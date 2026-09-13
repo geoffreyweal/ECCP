@@ -116,7 +116,6 @@ def get_neighbouring_molecules_about_dimers(environment_settings, neighbourhood_
 					neighbour_of_dm2_displacement = dimer_displacement + neighbour_displacement
 					neighbouring_molecules_about_dimers.setdefault(dimer_key,{})[neighbour_information] = neighbour_of_dm2_displacement
 
-	import pdb; pdb.set_trace()
 
 	# Third, return neighbouring_molecules_about_dimers
 	return neighbouring_molecules_about_dimers

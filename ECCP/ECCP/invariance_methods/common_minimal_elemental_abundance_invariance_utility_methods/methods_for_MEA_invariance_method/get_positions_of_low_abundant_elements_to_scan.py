@@ -31,7 +31,6 @@ def get_positions_of_low_abundant_elements_to_scan(elements, positions, max_numb
         print('max_number_of_atoms = '+str(max_number_of_atoms))
         print('Check this')
         print('(Warning: This error message may not be needed, for further investigation. GRW 26/36/23)')
-        import pdb; pdb.set_trace()
         raise Exception('check this out')
 
     # Second, obtain the positions for elements in the dimer.

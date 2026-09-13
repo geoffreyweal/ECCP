@@ -10,7 +10,7 @@ from copy import deepcopy
 
 def write_ECCP_process_ATC_submit_script(Unique_ATC_Gaussian_Jobs_folder, all_submission_information_for_ATCs):
 	"""
-	This method is designed to create a submit.sl script for performing ECCP process_ATC program in slurm.
+	This method is designed to create a submit.sl script for performing eccp process_ATC program in slurm.
 
 	Parameters
 	----------
@@ -27,11 +27,11 @@ def write_ECCP_process_ATC_submit_script(Unique_ATC_Gaussian_Jobs_folder, all_su
 	submission_information_for_ATCs_for_ECCP_prep['mem'] = '10GB'
 	if 'remove_chk_file' in submission_information_for_ATCs_for_ECCP_prep:
 		del submission_information_for_ATCs_for_ECCP_prep['remove_chk_file']
-	make_submitSL(Unique_ATC_Gaussian_Jobs_folder, 'ECCP_process_ATC', 'ECCP -T process_ATC', **submission_information_for_ATCs_for_ECCP_prep)
+	make_submitSL(Unique_ATC_Gaussian_Jobs_folder, 'ECCP_process_ATC', 'eccp -T process_ATC', **submission_information_for_ATCs_for_ECCP_prep)
 
 def write_ECCP_process_RE_submit_script(Unique_RE_FC_Gaussian_Jobs_folder,  all_submission_information_for_REs):
 	"""
-	This method is designed to create a submit.sl script for performing ECCP process_RE program in slurm.
+	This method is designed to create a submit.sl script for performing eccp process_RE program in slurm.
 
 	Parameters
 	----------
@@ -48,7 +48,7 @@ def write_ECCP_process_RE_submit_script(Unique_RE_FC_Gaussian_Jobs_folder,  all_
 	submission_information_for_REs_for_ECCP_prep['mem'] = '10GB'
 	if 'remove_chk_file' in submission_information_for_REs_for_ECCP_prep:
 		del submission_information_for_REs_for_ECCP_prep['remove_chk_file']
-	make_submitSL(Unique_RE_FC_Gaussian_Jobs_folder,  'ECCP_process_RE',  'ECCP -T process_RE',  **submission_information_for_REs_for_ECCP_prep)
+	make_submitSL(Unique_RE_FC_Gaussian_Jobs_folder,  'ECCP_process_RE',  'eccp -T process_RE',  **submission_information_for_REs_for_ECCP_prep)
 
 def write_ECCP_process_FC_submit_script(Unique_RE_FC_Gaussian_Jobs_folder,  all_submission_information_for_FCs):
 	"""
@@ -69,11 +69,17 @@ def write_ECCP_process_FC_submit_script(Unique_RE_FC_Gaussian_Jobs_folder,  all_
 	submission_information_for_FCs_for_ECCP_prep['mem'] = '10GB'
 	if 'remove_chk_file' in submission_information_for_FCs_for_ECCP_prep:
 		del submission_information_for_FCs_for_ECCP_prep['remove_chk_file']
-	make_submitSL(Unique_RE_FC_Gaussian_Jobs_folder,  'ECCP_process_FC',  'ECCP -T process_FC',  **submission_information_for_FCs_for_ECCP_prep)
+	raise NotImplementedError(
+		'Franck-Condon (FC) post-processing is not implemented in ECCP: there is no '
+		'"process_FC" subcommand and no ECCP_Programs module that provides it. '
+		'Writing this submit script would produce a slurm job that fails at runtime. '
+		'Set get_molecule_fcs=False in your Run_ECCP.py, or implement '
+		'ECCP/ECCP_Programs/ECCP_processing_FC_data.py and register it in ECCP/cli/main.py.'
+	)
 
 def write_ECCP_process_EET_submit_script(Unique_EET_Gaussian_Jobs_folder, all_submission_information_for_EETs):
 	"""
-	This method is designed to create a submit.sl script for performing ECCP process_EET program in slurm.
+	This method is designed to create a submit.sl script for performing eccp process_EET program in slurm.
 
 	Parameters
 	----------
@@ -90,11 +96,11 @@ def write_ECCP_process_EET_submit_script(Unique_EET_Gaussian_Jobs_folder, all_su
 	submission_information_for_EETs_for_ECCP_prep['mem'] = '10GB'
 	if 'remove_chk_file' in submission_information_for_EETs_for_ECCP_prep:
 		del submission_information_for_EETs_for_ECCP_prep['remove_chk_file']
-	make_submitSL(Unique_EET_Gaussian_Jobs_folder, 'ECCP_process_EET', 'ECCP -T process_EET', **submission_information_for_EETs_for_ECCP_prep)
+	make_submitSL(Unique_EET_Gaussian_Jobs_folder, 'ECCP_process_EET', 'eccp -T process_EET', **submission_information_for_EETs_for_ECCP_prep)
 
 def write_ECCP_process_Eigendata_submit_script(Unique_Eigendata_Gaussian_Jobs_folder, all_submission_information_for_Eigendata):
 	"""
-	This method is designed to create a submit.sl script for performing ECCP process_Eigendata program in slurm.
+	This method is designed to create a submit.sl script for performing eccp process_Eigendata program in slurm.
 
 	Parameters
 	----------
@@ -111,11 +117,11 @@ def write_ECCP_process_Eigendata_submit_script(Unique_Eigendata_Gaussian_Jobs_fo
 	submission_information_for_Eigendata_for_ECCP_prep['mem'] = '10GB'
 	if 'remove_chk_file' in submission_information_for_Eigendata_for_ECCP_prep:
 		del submission_information_for_Eigendata_for_ECCP_prep['remove_chk_file']
-	make_submitSL(Unique_Eigendata_Gaussian_Jobs_folder, 'ECCP_process_Eigendata', 'ECCP -T process_Eigendata', **submission_information_for_Eigendata_for_ECCP_prep)
+	make_submitSL(Unique_Eigendata_Gaussian_Jobs_folder, 'ECCP_process_Eigendata', 'eccp -T process_Eigendata', **submission_information_for_Eigendata_for_ECCP_prep)
 
 def write_ECCP_process_ICT_submit_script(Unique_ICT_Gaussian_Jobs_folder, all_submission_information_for_ICT):
 	"""
-	This method is designed to create a submit.sl script for performing ECCP process_ICT program in slurm.
+	This method is designed to create a submit.sl script for performing eccp process_ICT program in slurm.
 
 	Parameters
 	----------
@@ -132,7 +138,7 @@ def write_ECCP_process_ICT_submit_script(Unique_ICT_Gaussian_Jobs_folder, all_su
 	submission_information_for_ICT_for_ECCP_prep['mem'] = '10GB'
 	if 'remove_chk_file' in submission_information_for_ICT_for_ECCP_prep:
 		del submission_information_for_ICT_for_ECCP_prep['remove_chk_file']
-	make_submitSL(Unique_ICT_Gaussian_Jobs_folder, 'ECCP_process_ICT', 'ECCP -T process_ICT', **submission_information_for_ICT_for_ECCP_prep)
+	make_submitSL(Unique_ICT_Gaussian_Jobs_folder, 'ECCP_process_ICT', 'eccp -T process_ICT', **submission_information_for_ICT_for_ECCP_prep)
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

@@ -15,6 +15,9 @@ commands = [
     ('reset',             'ECCP.ECCP_Programs.ECCP_reset_uncompleted_jobs'), 
     ('process_coupling',  'ECCP.ECCP_Programs.ECCP_processing_coupling_data'),
     ('collect_ATC_files', 'ECCP.ECCP_Programs.ECCP_collect_ATC_files'),
+    # Alias: the generated ECCP_process_ATC submit scripts and the documentation both
+    # call this "process_ATC". Kept alongside collect_ATC_files for back-compatibility.
+    ('process_ATC',       'ECCP.ECCP_Programs.ECCP_collect_ATC_files'),
     ('process_EET',       'ECCP.ECCP_Programs.ECCP_processing_EET_data'),
     ('process_ICT',       'ECCP.ECCP_Programs.ECCP_processing_ICT_data'),
     ('process_Eigendata', 'ECCP.ECCP_Programs.ECCP_processing_Eigendata_data'),
@@ -23,7 +26,7 @@ commands = [
     ('remove',            'ECCP.ECCP_Programs.ECCP_remove_data')
 ]
 
-def main(prog='ECCP', description='ECCP command line tool.',version=__version__, commands=commands, hook=None, args=None):
+def main(prog='eccp', description='ECCP command line tool.',version=__version__, commands=commands, hook=None, args=None):
     parser = argparse.ArgumentParser(prog=prog,description=description,formatter_class=Formatter)
     parser.add_argument('--version', action='version',version='%(prog)s-{}'.format(version))
     parser.add_argument('-T', '--traceback', action='store_true')

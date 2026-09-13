@@ -6,7 +6,7 @@ This script contains methods for processing_OPV_Dimer_data.py
 '''
 import os
 
-from ECCP.ECCP_Programs.shared_general_methods.shared_general_methods import reverse_readline
+from SUMELF.SUMELF.calculation_file_methods.shared_general_methods import reverse_readline
 
 # Constants and conversions that are useful for processing data.
 planks_constant = 4.135667696 * (10.0 ** -15.0) #eVs

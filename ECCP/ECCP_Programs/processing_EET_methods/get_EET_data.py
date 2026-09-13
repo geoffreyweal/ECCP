@@ -5,7 +5,7 @@ This program is designed to gather EET data.
 '''
 import os, time
 from datetime import datetime, timedelta
-from ECCP.ECCP_Programs.shared_general_methods.shared_gaussian_methods     import found_a_gaussian_job_that_has_run, did_gaussian_job_complete, gaussian_temp_files_to_remove
+from SUMELF.SUMELF.calculation_file_methods.shared_gaussian_methods import found_a_gaussian_job_that_has_run, did_gaussian_job_complete, gaussian_temp_files_to_remove
 from ECCP.ECCP_Programs.processing_EET_methods.processing_EET_data_methods import is_this_calc_an_eet_calc, get_electronic_coupling_of_lowest_TD_state
 
 def get_EET_data(overall_path, log_filename, start_time):

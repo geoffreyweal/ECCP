@@ -6,7 +6,7 @@ This program will determine which of your dimers have been successfully calculat
 import os, sys
 from tqdm import tqdm
 
-from ECCP.ECCP_Programs.shared_general_methods.shared_general_methods       import reverse_readline
+from SUMELF.SUMELF.calculation_file_methods.shared_general_methods import reverse_readline
 from ECCP.ECCP_Programs.Did_Complete_Main_methods.did_finish_calc_on_system import did_finish_calc_on_system
 
 # -------------------------------------------------------------------------------

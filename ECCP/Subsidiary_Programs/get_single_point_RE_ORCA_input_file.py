@@ -8,9 +8,9 @@ import os, sys, shutil
 from ase.io import read
 from copy import deepcopy
 
-from ECCP.ECCP_Programs.shared_general_methods.shared_orca_methods import did_orca_opt_job_complete
-from ECCP.Subsidiary_Programs.get_charge_and_multiplicity          import get_charge_and_multiplicity_from_orca
-from ECCP.ECCP.write_molecules_to_disk_methods.orca_modified_RE    import write_orca_in_RE
+from SUMELF.SUMELF.calculation_file_methods.shared_orca_methods import did_orca_opt_job_complete
+from SUMELF.Subsidiary_Programs.get_charge_and_multiplicity import get_charge_and_multiplicity_from_orca
+from SUMELF import write_orca_in_RE
 
 def run_method(dirpath, optimisation_filename, single_point_filename, perform_TD, orca_parameters={}):
     """

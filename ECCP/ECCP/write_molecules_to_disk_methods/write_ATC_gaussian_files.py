@@ -7,8 +7,8 @@ from copy                                                                       
 from SUMELF                                                                        import make_folder
 from SUMELF                                                                        import check_molecule_against_file
 from ECCP.ECCP.write_molecules_to_disk_methods.write_methods.gaussian_modified_ATC import write_gaussian_in as write_gaussian_in_ATC
-from ECCP.ECCP.write_molecules_to_disk_methods.shared_methods                      import change_folder_name_components, input_commands_for_multiwfn
-from ECCP.ECCP.write_molecules_to_disk_methods.shared_methods                      import slurmSL_header, load_gaussian_programs, make_gaussian_temp_folder, remove_gaussian_temp_files
+from SUMELF import change_folder_name_components, input_commands_for_multiwfn
+from SUMELF import slurmSL_header, load_gaussian_programs, make_gaussian_temp_folder, remove_gaussian_temp_files
 
 def write_ATC_gaussian_files(molecule, molecule_name, environment_about_molecule, SolventsList, gaussian_jobs_path, calc_parameters_for_ATCs, submission_information_for_ATCs):
 	"""

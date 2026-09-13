@@ -76,7 +76,6 @@ def get_symmetries_of_molecules_in_crystal(molecules, crystal):
 
 		# CHECK: I want to check if translation_vector should be being used. 
 		if not (translation_vector == array([0., 0., 0.])).all():
-			import pdb; pdb.set_trace()
 			raise Exception('Check symmetry translation. Included or not.')
 
 		# 5.5: Compare all the molecule from the moelcules list together and see if any 
