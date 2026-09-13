@@ -1,7 +1,7 @@
 # The information about the Electronic Crystal Calculation Prep (ECCP) program
 
 __name__    = 'ECCP (The Electronic Crystal Calculation Prep Program)'
-__version__ = '0.19.17'
+__version__ = '0.20.0'
 __author__  = 'Dr. Geoffrey Weal, Dr. Chayanit Wechwithayakhlung, Dr. Josh Sutton, Dr. Daniel Packwood, Dr. Paul Hume, Prof. Justin Hodgkiss'
 
 import sys
@@ -210,28 +210,6 @@ if not xlsxwriter_found:
 	raise ImportError(toString)	
 
 # ------------------------------------------------------------------------------------------------------------------------
-
-'''
-mprof_spec = importlib.util.find_spec("memory_profiler")
-mprof_found = (tqdm_spec is not None)
-if not mprof_found:
-	toString = ''
-	toString += '\n'
-	toString += '================================================'+'\n'
-	toString += 'This is the Electronic Crystal Calculation Prep Program'+'\n'
-	toString += 'Version: '+str(__version__)+'\n'
-	toString += '\n'
-	toString += 'The Electronic Crystal Calculation Prep program requires the "memory_profiler" program.'+'\n'
-	toString += '\n'
-	toString += 'Install memory_profiler through pip by following the instruction in https://github.com/GardenGroupUO/ECCP'+'\n'
-	toString += 'These instructions will ask you to install memory_profiler by typing the following into your terminal\n'
-	toString += '\n'
-	toString += 'pip install --user --upgrade memory_profiler\n'
-	toString += '\n'
-	toString += 'This program will exit before beginning'+'\n'
-	toString += '================================================'+'\n'
-'''
-
 # ------------------------------------------------------------------------------------------------------------------------
 
 __author_email__ = 'geoffrey.weal@vuw.ac.nz'

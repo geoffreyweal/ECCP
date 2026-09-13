@@ -5,7 +5,6 @@ These methods are designed to give the centre, 1st, 2nd, and 3rd points for the 
 """
 import numpy as np
 from ase           import Atoms
-from ase.visualize import view
 from SUMELF        import get_unit_vector, are_two_values_within_eachother
 
 def get_points_of_first_dimer(d1_m1_positions_of_lowest_elements, d1_m2_positions_of_lowest_elements, no_of_atoms_in_d1_m1, d1_m2_original_elements=None, d1_m2_original_positions=None):
@@ -88,9 +87,7 @@ def get_points_of_first_dimer(d1_m1_positions_of_lowest_elements, d1_m2_position
             else:
                 if (d1_m2_original_elements is not None) and (d1_m2_original_positions is not None):
                     from ase import Atoms
-                    from ase.visualize import view
                     molecule2 = Atoms(symbols=d1_m2_original_elements, positions=d1_m2_original_positions)
-                    view(molecule2)
                     raise Exception('Error in def get_points_of_first_dimer, in methods_for_quick_invariance_method.py: Your molecule2 may only has one atom in it?')
         d1_point3_element, d1_point3_position, d1_point3_index, d1_direction3, dotproducts_d1_set2 = get_vector_details(d1_m2_positions_of_lowest_elements, index3, d1_centre_position, [d1_direction1, d1_direction2])
 

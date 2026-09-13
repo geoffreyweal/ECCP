@@ -7,7 +7,7 @@ This program is designed to process the Eigen data from Gaussian output files
 import os
 from datetime import datetime
 
-from ECCP.ECCP_Programs.shared_general_methods.shared_gaussian_methods import found_a_gaussian_job_that_has_run, did_gaussian_job_complete, gaussian_temp_files_to_remove
+from SUMELF.SUMELF.calculation_file_methods.shared_gaussian_methods import found_a_gaussian_job_that_has_run, did_gaussian_job_complete, gaussian_temp_files_to_remove
 from ECCP.ECCP_Programs.processing_Eigendata_methods.found_data        import found_eigendata_files, should_this_calc_contain_eigendata
 from ECCP.ECCP_Programs.processing_Eigendata_methods.get_eigenfiles    import get_eigenfiles
 

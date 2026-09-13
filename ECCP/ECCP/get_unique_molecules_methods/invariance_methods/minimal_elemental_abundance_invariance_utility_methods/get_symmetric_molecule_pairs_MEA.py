@@ -187,7 +187,6 @@ def compare_if_two_molecules_are_symmetric_single_process(input_data):
 			positions_are_variant_Comp, mol1_to_mol2_conversion_Comp = are_molecules_variant_from_comprehensive(m1_original_elements, m1_original_positions, no_of_H_on_atoms_in_molecule1, m2_original_elements, m2_original_positions, no_of_H_on_atoms_in_molecule2, max_distance_disparity, molecules_being_compared, neighbouring_molecules_about_molecules, non_hydrogen_molecules, m1_non_hydrogen_graph, m2_non_hydrogen_graph, no_of_cpus=no_of_cpus_for_comparing_two_molecules)
 
 			raise Exception('Error: Need to check the next stepo.')
-			import pdb; pdb.set_trace()
 
 			# 5.7: If the positions between the two molecule are variant:
 			if positions_are_variant_Comp:

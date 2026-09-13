@@ -6,7 +6,7 @@ This script is designed to write the gaussian files and submit.sl files required
 from copy   import deepcopy
 from SUMELF import make_folder
 
-from ECCP.ECCP.write_molecules_to_disk_methods.shared_methods import change_folder_name_components
+from SUMELF import change_folder_name_components
 
 from ECCP.ECCP.write_molecules_to_disk_methods.write_RE_gaussian_files_methods.make_initial_gaussian_RE_optimisation_gjf_file import make_initial_gaussian_RE_optimisation_gjf_file
 from ECCP.ECCP.write_molecules_to_disk_methods.write_RE_gaussian_files_methods.make_RE_gaussian_submitSL_preopt               import make_RE_gaussian_submitSL_preopt

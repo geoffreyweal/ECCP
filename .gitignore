@@ -270,3 +270,33 @@ dmypy.json
 .fuse_hidden*
 __pycache__
 git.tar
+
+###################################################################
+# Additional patterns
+
+# mkdocs build output.
+# The "/site" rule above is anchored to the repository root, but run_mkdocs.sh
+# builds into Documentation/site, so that output needs its own rule.
+site/
+Documentation/site/
+
+# macOS junk beyond .DS_Store (AppleDouble files on non-HFS volumes)
+._*
+.AppleDouble
+.Spotlight-V100
+.Trashes
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+
+# Editor swap and backup files
+*.swp
+*.swo
+*.swn
+*~
+.*.sw[a-z]
+
+# Merge / patch artefacts
+*.orig
+*.rej
+*.bak

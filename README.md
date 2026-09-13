@@ -37,7 +37,7 @@ The ECCP program works as follows:
 
 ## Installation
 
-It is recommended to read the installation page before using the ECCP program. See [Installation: Setting Up ECCP and Pre-Requisites Packages](https://geoffreyweal.github.io/ECCP/Installation) for more information. Note that you can install ECCP through ``pip3`` and ``conda``. 
+It is recommended to read the installation page before using the ECCP program. See [Installation: Setting Up ECCP and Pre-Requisites Packages](https://geoffreyweal.github.io/ECCP/Installation) for more information. Note that ECCP is not published to PyPI or conda; install it from GitHub with ``pip3 install --upgrade --user git+https://github.com/geoffreyweal/ECCP.git``. 
 
 ## Guide To Using ECCP
 

@@ -9,8 +9,8 @@ import numpy as np
 from datetime import datetime, timedelta
 
 from SUMELF import remove_folder, make_folder
-from ECCP.ECCP_Programs.shared_general_methods.shared_gaussian_methods   import found_a_gaussian_job_that_has_run
-from ECCP.ECCP_Programs.shared_general_methods.shared_orca_methods       import found_an_orca_job_that_has_run
+from SUMELF.SUMELF.calculation_file_methods.shared_gaussian_methods import found_a_gaussian_job_that_has_run
+from SUMELF.SUMELF.calculation_file_methods.shared_orca_methods import found_an_orca_job_that_has_run
 from ECCP.ECCP_Programs.processing_RE_methods.processing_RE_data_methods import found_a_re_jobset
 from ECCP.ECCP_Programs.processing_RE_methods.obtain_gaussian_RE_data    import obtain_gaussian_RE_data
 from ECCP.ECCP_Programs.processing_RE_methods.obtain_orca_RE_data        import obtain_orca_RE_data

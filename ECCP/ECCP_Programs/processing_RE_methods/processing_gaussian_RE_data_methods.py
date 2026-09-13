@@ -5,9 +5,9 @@ This script contains methods for processing_OPV_Dimer_data.py
 
 '''
 
-from ECCP.ECCP_Programs.shared_general_methods.shared_general_methods    import reverse_readline
+from SUMELF.SUMELF.calculation_file_methods.shared_general_methods import reverse_readline
 from ECCP.ECCP_Programs.processing_RE_methods.processing_RE_data_methods import is_finished_reading
-from ECCP.ECCP_Programs.shared_general_methods.shared_gaussian_methods   import did_gaussian_job_complete
+from SUMELF.SUMELF.calculation_file_methods.shared_gaussian_methods import did_gaussian_job_complete
 
 # -----------------------------------------------------------------
 

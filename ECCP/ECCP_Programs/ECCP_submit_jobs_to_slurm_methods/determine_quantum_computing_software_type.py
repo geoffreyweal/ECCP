@@ -3,7 +3,7 @@ Geoffrey Weal, determine_quantum_computing_software_type.py, 16/06/2021
 
 This program is designed
 '''
-from ECCP.ECCP_Programs.shared_general_methods.shared_orca_methods import is_orca_output_file
+from SUMELF.SUMELF.calculation_file_methods.shared_orca_methods import is_orca_output_file
 
 def determine_quantum_computing_software_type(dirpath, filenames):
 	"""

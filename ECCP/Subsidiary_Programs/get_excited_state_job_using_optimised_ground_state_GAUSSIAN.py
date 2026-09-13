@@ -15,7 +15,7 @@ print('Creating input file for eES_gES file using the optimised ground state.')
 path_to_ground_state_structure = sys.argv[1]
 
 # Third, usually the molecule name given here would be its actual name. However, as this is just for the title bar of the gjf file, we will just called it molecule.
-molecule_name 'molecule' #sys.args[2]
+molecule_name = 'molecule' #sys.args[2]
 
 # Third obtain the "gaussian_parameters_ES" dictionary from the file in the "excited_structure" folder. 
 with open('../excited_structure/gaussian_parameters_ES.txt', 'r') as FILE:

@@ -56,7 +56,6 @@ def get_structurally_equivalent_molecules(path_to_txtfile, molecule_nos):
             equivalent, _, unique = line.rstrip().split()
             equivalent = int(equivalent); unique = int(unique)
             if equivalent in structurally_equivalent_molecules.keys():
-                import pdb; pdb.set_trace()
                 raise Exception('huh?')
             structurally_equivalent_molecules[equivalent] = unique
 

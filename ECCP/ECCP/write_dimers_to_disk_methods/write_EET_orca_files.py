@@ -7,8 +7,8 @@ from copy                                                                       
 from SUMELF                                                                     import make_folder
 from SUMELF                                                                     import check_molecule_against_file
 from ECCP.ECCP.write_dimers_to_disk_methods.write_methods.gaussian_modified_EET import write_gaussian_in as write_gaussian_in_EET
-from ECCP.ECCP.write_molecules_to_disk_methods.shared_methods                   import change_folder_name_components
-from ECCP.ECCP.write_molecules_to_disk_methods.shared_methods                   import slurmSL_header, load_orca_programs, make_gaussian_temp_folder, remove_gaussian_temp_files
+from SUMELF import change_folder_name_components
+from SUMELF import slurmSL_header, load_orca_programs, make_gaussian_temp_folder, remove_gaussian_temp_files
 
 def write_EET_orca_files(original_molecule_1, original_molecule_2, full_dimer_name, gaussian_jobs_path, fragmentlist, all_gaussian_parameters_for_EETs, all_submission_information_for_EETs, get_dimer_eets=True, submit_EETs_in_parallel=True):
 	"""

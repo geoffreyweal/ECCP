@@ -5,11 +5,11 @@ This program is designed to tidy up your data folder and get rid of unnecessary 
 '''
 import os, shutil
 
-from ECCP.ECCP_Programs.shared_general_methods.shared_gaussian_methods import folder_contains_RE_files
-from ECCP.ECCP_Programs.shared_general_methods.shared_gaussian_methods import found_a_gaussian_job_that_has_run
-from ECCP.ECCP_Programs.shared_general_methods.shared_gaussian_methods import did_gaussian_job_complete
-from ECCP.ECCP_Programs.shared_general_methods.shared_gaussian_methods import gaussian_temp_files_to_remove
-from ECCP.ECCP_Programs.shared_general_methods.shared_gaussian_methods import remove_slurm_output_files
+from SUMELF.SUMELF.calculation_file_methods.shared_gaussian_methods import folder_contains_RE_files
+from SUMELF.SUMELF.calculation_file_methods.shared_gaussian_methods import found_a_gaussian_job_that_has_run
+from SUMELF.SUMELF.calculation_file_methods.shared_gaussian_methods import did_gaussian_job_complete
+from SUMELF.SUMELF.calculation_file_methods.shared_gaussian_methods import gaussian_temp_files_to_remove
+from SUMELF.SUMELF.calculation_file_methods.shared_gaussian_methods import remove_slurm_output_files
 
 class CLICommand:
     """Will tidy up your data folder and get rid of unnecessary files, particularly those very large files

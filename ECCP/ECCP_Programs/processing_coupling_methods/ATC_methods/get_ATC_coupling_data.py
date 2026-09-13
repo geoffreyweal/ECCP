@@ -197,7 +197,6 @@ def convert_ATC_data(ATC_coupling_data):
                 if (super_cell_reach > 3) and (highest_coupling_value < 0.1):
                     break
 
-            import pdb; pdb.set_trace()
 
 
 

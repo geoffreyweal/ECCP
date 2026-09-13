@@ -7,8 +7,8 @@ from copy                                                                       
 from SUMELF                                                                        import make_folder
 from SUMELF                                                                        import add_graph_to_ASE_Atoms_object
 from ECCP.ECCP.write_molecules_to_disk_methods.write_methods.gaussian_modified_ATC import write_gaussian_in as write_gaussian_in_ATC
-from ECCP.ECCP.write_molecules_to_disk_methods.shared_methods                      import change_folder_name_components, input_commands_for_multiwfn
-from ECCP.ECCP.write_molecules_to_disk_methods.shared_methods                      import slurmSL_header
+from SUMELF import change_folder_name_components, input_commands_for_multiwfn
+from SUMELF import slurmSL_header
 
 def write_ATC_multiwfn_files(molecule, molecule_name, environment_about_molecule, SolventsList, gaussian_jobs_path, all_calc_parameters, all_submission_information_for_multiwfn, submit_ATCs_in_parallel=True):
 	"""

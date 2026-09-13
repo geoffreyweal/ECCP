@@ -2,7 +2,7 @@ import os
 from setuptools import setup
 
 def get_version_number():
-  path_to_written_version = 'eccp/__init__.py'
+  path_to_written_version = 'ECCP/__init__.py'
   with open(path_to_written_version) as initPY:
     for line in initPY:
       if line.startswith('__version__'):
@@ -27,13 +27,13 @@ def find_packages(root):
         rel_dirname = os.path.relpath(dirname)
         if not rel_dirname in packages:
           packages.append(rel_dirname)
-  return sorted(packages)
+  return sorted(package.replace(os.sep, '.') for package in packages)
 
 def find_scripts():
   scripts = []
-  scripts_folders = []
+  scripts_folders = ['Subsidiary_Programs']
   for scripts_folder in scripts_folders:
-    for root, dirs, files in os.walk('eccp/'+scripts_folder, topdown=False):
+    for root, dirs, files in os.walk('ECCP/'+scripts_folder, topdown=False):
       for file in files:
         if file.endswith('.py') and not 'Main' in file:
           filepath = os.path.relpath(os.path.join(root, file))
@@ -42,20 +42,21 @@ def find_scripts():
   return sorted(scripts)
 
 setup(name='ECCP',
-      packages=find_packages(root='eccp'),
-      scripts=['bin/eccp']+find_scripts(),
+      packages=find_packages(root='ECCP'),
+      entry_points={'console_scripts': ['eccp=ECCP.cli.main:main']},
+      scripts=find_scripts(),
       version=get_version_number(),
       description="This program takes a crystal structure (of a OPV or any crystal) and will separate the crystal into its individual molecules, as well as provide the dimers of these molecules. This program will then provide Gaussian input files for performing atomic transition charges upon the unique molecules, as well as for performing excitation energy transfer calculations upon the unique dimers.",
       long_description=get_long_description(),
       long_description_content_type='text/markdown',
-      author='Dr. Geoffrey R. Weal and Dr. Anna L. Garden',
-      author_email='anna.garden@otago.ac.nz',
-      url = 'https://blogs.otago.ac.nz/annagarden/',
-      download_url = 'https://github.com/GardenGroupUO/Electronic_Crystal_Calculation_Prep/archive/v'+str(get_version_number())+'.tar.gz',
+      author='Dr. Geoffrey Weal, Dr. Josh Sutton, Dr. Chayanit Wechwithayakhlung, Dr. Daniel Packwood, Dr. Paul Hume, Prof. Justin Hodgkiss',
+      author_email='paul.hume@vuw.ac.nz',
+      url = 'https://github.com/geoffreyweal/ECCP',
+      download_url = 'https://github.com/geoffreyweal/ECCP/archive/v'+str(get_version_number())+'.tar.gz',
       license='GNU AFFERO GENERAL PUBLIC LICENSE',
       zip_safe=False,
       keywords = ['victoria-university', 'victoria-university-of-wellington', 'university-of-wellington', 'wellington-university', 'atomic-simulation-environment', 'organic-photovoltaics', 'OPV'],
-      install_requires=['numpy', 'ase>=3.19.0', 'packaging', 'networkx', 'tqdm', 'xlsxwriter'],
+      install_requires=['numpy', 'ase>=3.19.0', 'scipy', 'networkx', 'pymatgen', 'packaging', 'tqdm', 'xlsxwriter', 'SUMELF @ git+https://github.com/geoffreyweal/SUMELF.git'],
       classifiers=[
         'Development Status :: 3 - Alpha',      # Chose either "3 - Alpha", "4 - Beta" or "5 - Production/Stable" as the current state of your package
         'Intended Audience :: Science/Research',      # Define that your audience are developers

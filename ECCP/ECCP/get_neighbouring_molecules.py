@@ -4,13 +4,13 @@ get_neighbouring_molecules.py, Geoffrey Weal, 2/3/23
 This script will evaluate the molecules surrounding each molecule in the unit cell.
 """
 
-from ECCP.ECCP.get_neighbouring_molecules_methods.centre_of_mass_method          import get_neighbours_centre_of_mass_method
-from ECCP.ECCP.get_neighbouring_molecules_methods.centre_of_molecule_method      import get_neighbours_centre_of_molecule_method
-from ECCP.ECCP.get_neighbouring_molecules_methods.average_distance_method        import get_neighbours_average_distance_method
-from ECCP.ECCP.get_neighbouring_molecules_methods.nearest_atoms_method           import get_neighbours_nearest_atoms_method
+from SUMELF.SUMELF.get_neighbouring_molecules_methods.centre_of_mass_method          import get_neighbours_centre_of_mass_method
+from SUMELF.SUMELF.get_neighbouring_molecules_methods.centre_of_molecule_method      import get_neighbours_centre_of_molecule_method
+from SUMELF.SUMELF.get_neighbouring_molecules_methods.average_distance_method        import get_neighbours_average_distance_method
+from SUMELF.SUMELF.get_neighbouring_molecules_methods.nearest_atoms_method           import get_neighbours_nearest_atoms_method
 from SUMELF import centre_molecule_in_cell
 
-def get_neighbouring_molecules(molecules, molecule_graphs, make_dimer_method={'method': 'nearest_atoms_method', 'max_dimer_distance': 8.0}, environment_settings={'environment_radius': 8.0, 'include_environment_in_molecule_calcs': True, 'include_environment_in_dimer_calcs': True}, include_hydrogens_in_neighbour_analysis=False, no_of_cpus=1):
+def get_neighbouring_molecules(molecules, molecule_graphs, make_dimer_method={'method': 'nearest_atoms_method', 'max_dimer_distance': 8.0}, environment_settings={'include_environment_in_molecule_calcs': False, 'include_environment_in_dimer_calcs': False, 'max_environment_distance': 8.0}, include_hydrogens_in_neighbour_analysis=False, no_of_cpus=1):
 	"""
 	This method is designed to obtain all the molecules that neighbour each molecule in the original unit cell within some distance. 
 
@@ -61,12 +61,12 @@ def get_neighbouring_molecules(molecules, molecule_graphs, make_dimer_method={'m
 	elif make_dimer_method_name == 'centre_of_molecule':
 		max_dimer_distance = make_dimer_method['max_dimer_distance']
 	elif make_dimer_method_name == 'average_distance_method':
-		max_dimer_distance = make_dimer_method['average_distance_method']
+		max_dimer_distance = make_dimer_method['max_dimer_distance']
 	elif make_dimer_method_name == 'nearest_atoms_method':
 		max_dimer_distance = make_dimer_method['max_dimer_distance']
 	else:
 		toString_error_message += '\n'
-		toString_error_message += 'The dimer method name you have given is: '+str()+'\n'
+		toString_error_message += 'The dimer method name you have given is: '+str(make_dimer_method_name)+'\n'
 		toString_error_message += 'See https://github.com/geoffreyweal/ECCP for more information'+'\n'
 		toString_error_message += 'This program will finish without completing'+'\n'
 		raise Exception(toString_error_message)
@@ -77,20 +77,26 @@ def get_neighbouring_molecules(molecules, molecule_graphs, make_dimer_method={'m
 	include_environment = include_environment_in_molecule_calcs or include_environment_in_dimer_calcs
 	if include_environment:
 		max_environment_distance = environment_settings['max_environment_distance']
+	else:
+		# max_environment_distance is still passed to get_neighbourhood_molecules_for_environment_method
+		# below (which ignores it when include_environment is False), so it must always be defined.
+		max_environment_distance = None
 
 	# Fifth, obtain the neighbours surrounding the molecules for the dimer method and the environment settings.
 	if   make_dimer_method_name == 'centre_of_mass':
-		raise Exception('Check if this method includes multiprocessing')
-		neighbourhood_molecules_for_dimer_method       = get_neighbours_centre_of_mass_method(molecules, max_dimer_distance, include_hydrogens_in_neighbour_analysis=include_hydrogens_in_neighbour_analysis)
+		neighbourhood_molecules_for_dimer_method       = get_neighbours_centre_of_mass_method(molecules, max_dimer_distance, include_hydrogens_in_neighbour_analysis=include_hydrogens_in_neighbour_analysis, no_of_cpus=no_of_cpus)
 		neighbourhood_molecules_for_environment_method = get_neighbourhood_molecules_for_environment_method(include_environment, molecules, molecule_graphs, max_environment_distance, include_hydrogens_in_neighbour_analysis=include_hydrogens_in_neighbour_analysis, no_of_cpus=no_of_cpus)
 	elif make_dimer_method_name == 'centre_of_molecule':
-		raise Exception('Check if this method includes multiprocessing')
-		neighbourhood_molecules_for_dimer_method       = get_neighbours_centre_of_molecule_method(molecules, max_dimer_distance, include_hydrogens_in_neighbour_analysis=include_hydrogens_in_neighbour_analysis)
+		neighbourhood_molecules_for_dimer_method       = get_neighbours_centre_of_molecule_method(molecules, max_dimer_distance, include_hydrogens_in_neighbour_analysis=include_hydrogens_in_neighbour_analysis, no_of_cpus=no_of_cpus)
 		neighbourhood_molecules_for_environment_method = get_neighbourhood_molecules_for_environment_method(include_environment, molecules, molecule_graphs, max_environment_distance, include_hydrogens_in_neighbour_analysis=include_hydrogens_in_neighbour_analysis, no_of_cpus=no_of_cpus)
 	elif make_dimer_method_name == 'average_distance_method':
-		raise Exception('Check if this method includes multiprocessing')
-		neighbourhood_molecules_for_dimer_method       = get_neighbours_average_distance_method(molecules, max_dimer_distance, include_hydrogens_in_neighbour_analysis=include_hydrogens_in_neighbour_analysis)
-		neighbourhood_molecules_for_environment_method = get_neighbourhood_molecules_for_environment_method(include_environment, molecules, molecule_graphs, max_environment_distance, include_hydrogens_in_neighbour_analysis=include_hydrogens_in_neighbour_analysis, no_of_cpus=no_of_cpus)
+		# This method was never finished: its own source is marked "not implemented yet" and
+		# "I DONT THINK this is WORKING PROPERLY". Fail here rather than return dimers that cannot be trusted.
+		raise NotImplementedError(
+			'The "average_distance_method" dimer method is not implemented. '
+			'Use "nearest_atoms_method", "centre_of_mass" or "centre_of_molecule" instead. '
+			'See SUMELF/SUMELF/get_neighbouring_molecules_methods/average_distance_method.py if you want to finish it.'
+		)
 	elif make_dimer_method_name == 'nearest_atoms_method':
 		if include_environment:
 			max_distance = max([max_dimer_distance, max_environment_distance])

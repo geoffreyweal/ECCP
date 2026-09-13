@@ -8,9 +8,9 @@ from ase.io                                                                   im
 from SUMELF                                                                   import make_folder
 from SUMELF                                                                   import check_molecule_against_file
 from SUMELF                                                                   import obtain_graph
-from ECCP.ECCP.write_molecules_to_disk_methods.write_methods.orca_modified_RE import write_orca_in_RE
-from ECCP.ECCP.write_molecules_to_disk_methods.shared_methods                 import change_folder_name_components, convert_dict_for_bash_input
-from ECCP.ECCP.write_molecules_to_disk_methods.shared_methods                 import slurmSL_header, load_orca_programs, make_orca_temp_folder, remove_orca_temp_files
+from SUMELF import write_orca_in_RE
+from SUMELF import change_folder_name_components, convert_dict_for_bash_input
+from SUMELF import slurmSL_header, load_orca_programs, make_orca_temp_folder, remove_orca_temp_files
 
 def write_RE_orca_files(molecule, molecule_name, SolventsList, orca_jobs_path, calc_parameters_for_REs, submission_information_for_REs):
 	"""

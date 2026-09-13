@@ -5,8 +5,8 @@ This script is designed to create the single point ORCA calculation files (.inp 
 """
 from copy                                                     import deepcopy
 from SUMELF                                                   import make_folder
-from ECCP.ECCP.write_molecules_to_disk_methods.shared_methods import change_folder_name_components, convert_dict_for_bash_input
-from ECCP.ECCP.write_molecules_to_disk_methods.shared_methods import slurmSL_header, load_orca_programs, make_orca_temp_folder, remove_orca_temp_files
+from SUMELF import change_folder_name_components, convert_dict_for_bash_input
+from SUMELF import slurmSL_header, load_orca_programs, make_orca_temp_folder, remove_orca_temp_files
 
 def write_RE_orca_SP_files(molecule, molecule_name, SolventsList, orca_jobs_path, calc_parameters_for_RE_SPs, submission_information_for_RE_SPs):
 	"""

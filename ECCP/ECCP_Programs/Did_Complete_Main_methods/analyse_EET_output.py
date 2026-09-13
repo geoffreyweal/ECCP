@@ -4,7 +4,7 @@ analyse_EET_output.py, Geoffrey Weal, 29/12/22
 This method is designed to check if an EET Gaussian job has completed or not.
 '''
 import os
-from ECCP.ECCP_Programs.shared_general_methods.shared_general_methods import reverse_readline
+from SUMELF.SUMELF.calculation_file_methods.shared_general_methods import reverse_readline
 
 def analyse_EET_output(software_type, path_to_output):
     """

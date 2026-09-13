@@ -5,7 +5,7 @@ Geoffrey Weal, has_optimisation_converged.py, 16/6/23
 This program is designed to  
 '''
 import os, sys
-from ECCP.ECCP_Programs.shared_general_methods.shared_gaussian_methods import did_gaussian_opt_job_complete
+from SUMELF.SUMELF.calculation_file_methods.shared_gaussian_methods import did_gaussian_opt_job_complete
 
 # First, get the dirpath and opt_filename variables
 dirpath = os.getcwd()

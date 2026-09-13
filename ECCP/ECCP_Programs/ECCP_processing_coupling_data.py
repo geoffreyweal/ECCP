@@ -133,11 +133,8 @@ def Run_method():
                 coupling_around_molecule.set_array('ATC_coupling_colour', np.array(coupling_around_molecule_ATC_coupling_colour))
 
 
-                from ase.visualize import view
                 from ase.io import write
-                view(coupling_around_molecule)
                 write('test.xyz', coupling_around_molecule)
-                import pdb; pdb.set_trace()
                 exit()
                     
 

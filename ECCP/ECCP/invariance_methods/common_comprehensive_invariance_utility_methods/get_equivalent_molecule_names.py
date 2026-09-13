@@ -49,7 +49,6 @@ def get_equivalent_molecule_names(non_hydrogen_graphs, include_comparisons_with_
         # 3.1: Check that none of the entries in list_of_equivalent_molecule_names has mol_name1
         if include_comparisons_with_itself: 
             if mol_name1 > mol_name2: # We have included a comparision of the molecule with itself. This is used for determining symmetric dimers. 
-                import pdb; pdb.set_trace()
                 raise Exception('Error: mol_name 1 is bigger than mol_name 2. This may indicate a programming error. Check this.')
         else:
             if mol_name1 >= mol_name2: # We have not included a comparision of the molecule with itself. This is used for determining symmetric molecules. 

@@ -4,8 +4,8 @@ make_RE_freq_gaussian_submitSL.py, Geoffrey Weal, 8/5/22
 This method will write the submit.sl file in parallel for performing frequency calculations. 
 """
 from copy                                                     import deepcopy
-from ECCP.ECCP.write_molecules_to_disk_methods.shared_methods import convert_dict_for_bash_input
-from ECCP.ECCP.write_molecules_to_disk_methods.shared_methods import slurmSL_header, load_gaussian_programs, make_gaussian_temp_folder, remove_gaussian_temp_files
+from SUMELF import convert_dict_for_bash_input
+from SUMELF import slurmSL_header, load_gaussian_programs, make_gaussian_temp_folder, remove_gaussian_temp_files
 
 def make_RE_freq_gaussian_submitSL(freq_calc_filename, local_path, perform_TD, perform_raman, functional, basis_set, gaussian_parameters, cpus_per_task, mem, time, partition='parallel', constraint=None, nodelist=None, exclude=None, email='', python_version='python/3.8.1', gaussian_version='gaussian/g16', temp_folder_path=None, remove_chk_file=False):
 	"""
