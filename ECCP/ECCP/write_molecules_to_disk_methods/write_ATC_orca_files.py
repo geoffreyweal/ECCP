@@ -81,7 +81,8 @@ def write_ATC_orca_files(molecule, molecule_name, environment_about_molecule, So
 
 	# Seventh, create the xyz file for this ATC structure. 
 	#magnetic_moments = molecule.get_initial_magnetic_moments()
-	molecule_copy, molecule_copy_graph = obtain_graph(molecule.copy(), name='molecule_copy', no_of_cpus=1)
+	molecule_copy = molecule.copy()
+	molecule_copy_graph = obtain_graph(molecule_copy, name='molecule_copy', no_of_cpus=1)
 	molecule_copy.set_initial_charges(None); molecule_copy.set_cell(None)
 	#molecule_copy.set_initial_magnetic_moments(magnetic_moments)
 	write(calc_folder+'/'+molecule_name+'.xyz', molecule_copy)

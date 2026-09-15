@@ -125,7 +125,8 @@ def write_RE_orca_files(molecule, molecule_name, SolventsList, orca_jobs_path, c
 
 	# 10.4: Create the xyz file for optimising the ground structure. 
 	#magnetic_moments = molecule.get_initial_magnetic_moments()
-	molecule_copy, molecule_copy_graph = obtain_graph(molecule.copy(), name='molecule_copy', no_of_cpus=1)
+	molecule_copy = molecule.copy()
+	molecule_copy_graph = obtain_graph(molecule_copy, name='molecule_copy', no_of_cpus=1)
 	molecule_copy.set_initial_charges(None); molecule_copy.set_cell(None)
 	#molecule_copy.set_initial_magnetic_moments(magnetic_moments)
 	write(path_to_ground_state_XYZ_file, molecule_copy)	
@@ -147,7 +148,8 @@ def write_RE_orca_files(molecule, molecule_name, SolventsList, orca_jobs_path, c
 
 	# 10.8: Create the xyz file for optimising the excited structure. 
 	#magnetic_moments = molecule.get_initial_magnetic_moments()
-	molecule_copy, molecule_copy_graph = obtain_graph(molecule.copy(), name='molecule_copy', no_of_cpus=1)
+	molecule_copy = molecule.copy()
+	molecule_copy_graph = obtain_graph(molecule_copy, name='molecule_copy', no_of_cpus=1)
 	molecule_copy.set_initial_charges(None); molecule_copy.set_cell(None)
 	#molecule_copy.set_initial_magnetic_moments(magnetic_moments)
 	write(path_to_excited_state_XYZ_file, molecule_copy)
